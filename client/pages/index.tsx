@@ -1,6 +1,4 @@
-import { Contact } from '../types';
 import ContactGrid from '../components/ContactGrid'
-import Link from 'next/link'
 import { gql } from '@apollo/client';
 import client from '../apollo-client';
 
