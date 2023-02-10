@@ -5,38 +5,7 @@ import express from 'express';
 import http from 'http';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-// import { typeDefs, resolvers } from './schema';
-
-const typeDefs = `#graphql
-  type Contact {
-    name: String
-    address: String
-    phone: String
-  }
-
-  type Query {
-    contacts: [Contact]
-  }
-`;
-
-const contacts = [
-  {
-    name: 'Jane Doe',
-    address: '1 Infinite Loop, CA',
-    phone: '123-456-7890',
-  },
-  {
-    name: 'Mary Sue',
-    address: '221B Baker Street, London',
-    phone: '098-765-4321',
-  }
-];
-
-const resolvers = {
-  Query: {
-    contacts: () => contacts,
-  },
-};
+import { typeDefs, resolvers } from './schema.js';
 
 interface MyContext {
   token?: string;
