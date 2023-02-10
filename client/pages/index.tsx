@@ -1,14 +1,34 @@
+import { Contact } from '../types';
+import ContactGrid from '../components/ContactGrid'
 import Link from 'next/link'
+import { gql } from '@apollo/client';
+import client from '../apollo-client';
 
-export default function Home() {
+export default function Home({ contacts }) {
   return (
-    <div className='text-3xl font-bold underline'>
-      Welcome, insert name here
-      <br/><br/>
-      <Link href="/about">About</Link>
-      <br/><br/>
-      <Link href="/contacts">Contacts</Link>
-
-  </div>
+    <div className='font-sans'>
+      <h1 className='text-3xl'>Contacts</h1>
+      <ContactGrid contacts={contacts}/>
+    </div>
   )
+}
+
+export async function getServerSideProps() {
+  const { data } = await client.query({
+    query: gql`
+      query Contacts {
+        contacts {
+          name
+          address
+          phone
+        }
+      }
+    `,
+  });
+
+  return {
+    props: {
+      contacts: data.contacts,
+    }
+  };
 }
