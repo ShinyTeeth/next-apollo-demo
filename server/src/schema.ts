@@ -12,7 +12,7 @@ export const typeDefs = `#graphql
   }
 `;
 
-const contacts = generateContacts(20);
+const contacts = generateContacts(200);
 
 export const resolvers = {
   Query: {
