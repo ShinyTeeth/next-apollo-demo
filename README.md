@@ -1,4 +1,23 @@
 # next-apollo-demo
-Simple Next.js example with Apollo and React
+Simple Next.js example with Apollo GraphQL and React.
 
-TO-DO: Will add more later
+### Setup
+- Install separately in `/client` and `/server`:
+```
+npm install
+```
+
+- Run client locally:
+```
+npm run dev
+```
+
+- Run server locally:
+```
+npm run start
+```
+
+- Run tests in client folder:
+```
+npm run test
+```
